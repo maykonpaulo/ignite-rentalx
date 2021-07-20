@@ -5,8 +5,23 @@ import { ISpecificationsRepository, ICreateSpecificationDTO } from "../ISpecific
 class SpecificationsRepository implements ISpecificationsRepository {
     private repository: Repository<Specification>;
 
+<<<<<<< HEAD
     constructor() {
         this.repository = getRepository(Specification);
+=======
+    private static INSTANCE: SpecificationsRepository;
+
+    constructor() {
+        this.specifications = [];
+    }
+
+    public static getInstance(): SpecificationsRepository {
+        if (!SpecificationsRepository.INSTANCE) {
+            SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+        }
+
+        return SpecificationsRepository.INSTANCE;
+>>>>>>> a80950a06b6f19542b3718702a3cfe7db95abaa3
     }
 
     async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
