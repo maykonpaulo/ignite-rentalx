@@ -22,9 +22,9 @@ describe("List Cars", () => {
             category_id: "1323"
         });
 
-        const cars = await listAvailableCarsUseCase.execute();
+        const cars = await listAvailableCarsUseCase.execute({});
 
-        expect(cars).toEqual(car);
+        expect(cars[0]).toEqual(car);
     });
 
     it("Should be able to list all avalable cars by brand", async () => {
@@ -42,7 +42,7 @@ describe("List Cars", () => {
             brand: "Teste"
         });
 
-        expect(cars).toEqual(car);
+        expect(cars[0]).toEqual(car);
     });
 
     it("Should be able to list all avalable cars by name", async () => {
@@ -60,6 +60,6 @@ describe("List Cars", () => {
             name: "Teste"
         });
 
-        expect(cars).toEqual(car);
+        expect(cars[0]).toEqual(car);
     });
 });
